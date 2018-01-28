@@ -1,0 +1,15 @@
+{
+  "short_name": "Contentful Models to TypeScript",
+  "name": "Contentful Models to TypeScript Type Definitions",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#273238",
+  "background_color": "#f5f5f5"
+}

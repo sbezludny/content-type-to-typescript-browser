@@ -1,0 +1,60 @@
+{
+  "name": "content-type-to-typescript-browser",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Browser playground for content-type-to-typescript",
+  "author": "Sergii Bezliudnyi <serg.bezludny@gmail.com>",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "codemirror": "^5.33.0",
+    "content-type-to-typescript": "0.0.0-development",
+    "contentful": "^5.0.5",
+    "material-ui": "^1.0.0-beta.30",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "prettier": "^1.10.2",
+    "prop-types": "^15.6.0",
+    "raven-js": "^3.22.1",
+    "react": "^16.2.0",
+    "react-codemirror2": "^3.0.7",
+    "react-dom": "^16.2.0",
+    "react-highlight.js": "^1.0.7",
+    "react-loadable": "^5.3.1",
+    "react-markdown": "^3.1.4",
+    "react-router-dom": "^4.2.2",
+    "react-scripts-ts": "^2.13.0",
+    "recompose": "^0.26.0"
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject",
+    "postinstall": "node ./tools/degrade-prettier",
+    "precommit": "lint-staged",
+    "lint": "tslint -t codeFrame 'src/**/*.{ts,tsx}'"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "prettier --parser typescript --write",
+      "npm run lint -- --fix",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.3",
+    "@types/codemirror": "0.0.55",
+    "@types/jest": "^22.0.1",
+    "@types/jss": "^9.3.0",
+    "@types/node": "^9.3.0",
+    "@types/prop-types": "^15.5.2",
+    "@types/react": "^16.0.34",
+    "@types/react-dom": "^16.0.3",
+    "@types/react-loadable": "^5.3.1",
+    "@types/react-router-dom": "^4.2.3",
+    "@types/react-transition-group": "^2.0.6",
+    "@types/recompose": "^0.24.4",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "typescript": "^2.6.2"
+  }
+}
