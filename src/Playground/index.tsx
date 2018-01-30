@@ -96,7 +96,7 @@ class Playground extends React.Component<
                 return <Spinner />;
               }
 
-              return <Editor value={ts || error.message} />;
+              return <Editor value={ts || error.message} readOnly={true} />;
             }}
           />
         </Grid>
