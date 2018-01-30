@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { ContentType } from 'contentful';
-
+import pkg from '../../../package.json';
+import { get } from 'lodash';
 interface State {
   code?: string;
   // tslint:disable-next-line:no-any
@@ -31,6 +32,12 @@ class GenerateTsDefinitions extends React.Component<Props, State> {
     import(/* webpackChunkName: 'content-type-to-typescript' */ 'content-type-to-typescript')
       .then(contentTypeToTS => {
         this.contentTypeToTS = contentTypeToTS;
+
+        // tslint:disable-next-line:no-console
+        console.log(
+          'content-type-to-typescript version',
+          get(pkg, ['dependencies', 'content-type-to-typescript']),
+        );
       })
       .then(() => {
         this.generateTs(this.props);
