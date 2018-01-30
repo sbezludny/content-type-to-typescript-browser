@@ -7,7 +7,7 @@ import 'codemirror/addon/fold/foldcode.js';
 import 'codemirror/addon/fold/foldgutter.js';
 import 'codemirror/addon/fold/brace-fold.js';
 import 'codemirror/addon/display/placeholder.js';
-
+import { debounce } from 'lodash';
 import * as classNames from 'classnames';
 
 require('./index.css');
@@ -32,16 +32,17 @@ class Editor extends React.Component<WithStyles<'editor'> & Props, State> {
   state = {
     value: '',
   };
-  shouldComponentUpdate(nextProps: Props) {
-    return nextProps.value !== this.state.value;
-  }
-  handleChange(value: string) {
+  handleChange = debounce((value: string) => {
     this.setState(() => ({
       value,
     }));
     if (this.props.onChange) {
       this.props.onChange(value);
     }
+    // tslint:disable-next-line:align
+  }, 150);
+  shouldComponentUpdate(nextProps: Props) {
+    return nextProps.value !== this.state.value;
   }
   render() {
     return (
